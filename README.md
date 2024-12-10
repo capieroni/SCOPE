@@ -2,7 +2,7 @@
 
 **Scientific Chart and Output Parsing Engine (SCOPE)**
 
-Welcome to **SCOPE**, a comprehensive framework designed to detect, parse, and extract data from scientific charts and graphs within research publications. SCOPE (based on DeepRule) integrates multiple open-source components (such as CornerNet and MS COCO APIs) and leverages deep learning, computer vision, and OCR techniques. Its main goal is to serve as a foundation for a larger-scale system (REALM) that can automatically extract structured data from figures in scientific documents, identify key insights, and highlight “negative” or “insignificant” results.
+Welcome to **SCOPE**, a framework and research initiative designed to detect, parse, and extract data from scientific charts and graphs within research publications. SCOPE (based on DeepRule) integrates multiple open-source components (such as CornerNet and MS COCO APIs) and leverages deep learning, computer vision, and OCR techniques. Its main goal is to serve as a foundation for a larger-scale system (REALM) that can automatically extract structured data from figures in scientific documents, identify key insights, and highlight “negative” or “insignificant” results.
 
 This repository provides instructions for setting up the environment, installing dependencies, compiling necessary components, and running both training and inference pipelines. It also covers how to access and use the CHARTEX dataset, incorporate OCR, and extend the system’s functionalities.
 
@@ -170,3 +170,17 @@ For batch testing (pre-assign chart type):
     python test_pipe_type_cloud.py --image_path /data/bar_test --save_path save --type Bar
    ```
 
+---
+
+## Integration with OpenCV
+
+OpenCV is used extensively within SCOPE for:
+
+- Image preprocessing (resizing, cropping, normalization).
+- Figure detection within PDFs converted to images.
+- Drawing bounding boxes and annotations on extracted figures.
+This ensures that the input data is properly formatted before being fed into deep learning models. Adjusting OpenCV parameters (e.g., thresholding, contour detection) can improve figure detection accuracy.
+
+If needed, modify the OpenCV-based preprocessing functions in the provided scripts to handle different image qualities, resolutions, or chart types.
+
+Further instructions are found in the comments of the jupyter notebook file.
